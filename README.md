@@ -1,2 +1,2 @@
 # amazonclone
- React/Node JS ecommarce project 
+ React/Node JS Ecommerce project 
