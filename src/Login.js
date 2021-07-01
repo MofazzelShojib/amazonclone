@@ -67,13 +67,13 @@ function Login() {
 
                 <p>
                     By signing-in you agree to the terms and conditions of the company.
-                    Please see our Privacy Notice.
+                    Please read our Privacy Notice.
                 </p>
 
                 <button type='submit' onClick={register} className="login_registerButton">Create an Account
                 </button>
                 
-                <p>If New! put your Email, set password and click to create your account</p>
+                <p>If New! put your Email, set Password and click to create your account</p>
 
             </div>
             
