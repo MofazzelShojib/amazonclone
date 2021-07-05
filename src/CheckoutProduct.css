@@ -22,8 +22,10 @@
   text-align: justify;
 }
 
-.checkoutProduct_price {
+.checkoutProduct_price,
+.checkoutProduct_price > small {
   font-size: 18px;
+  font-weight: 500;
 }
 
 .checkoutProduct_rating {

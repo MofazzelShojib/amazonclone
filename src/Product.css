@@ -19,8 +19,9 @@
   justify-content: flex-end;
 }
 
-.product_price {
+.product_price > small {
   margin-top: 5px;
+  font-weight: 500;
 }
 
 .product_rating {
