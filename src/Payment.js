@@ -3,7 +3,7 @@ import CheckoutProduct from './CheckoutProduct';
 import "./Payment.css";
 import { useStateValue } from './StateProvider';
 import { Link, useHistory } from 'react-router-dom';
-import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { CardElement, useElements, useStripe} from '@stripe/react-stripe-js';
 import { getBasketTotal } from './reducer';
 import CurrencyFormat from 'react-currency-format';
 import axios from './axios';
@@ -27,15 +27,17 @@ function Payment() {
         //stripe secret 
         const getClientSecret = async () => {
             const response = await axios ({
-                method: "post",
-                url: '/payments/crate?total=${getBasketTotal(basket) * 100}' 
+                method: 'post',
+                url: '/payments/create?total=${getBasketTotal(basket)*100}',
             });
+
             setClientSecret(response.data.clientSecret)
         }
-
         getClientSecret();
 
     }, [basket])
+
+    console.log ('the secret is >>>', clientSecret)
 
     const handleSubmit = async (event) => {
         //Stripe stuff here..
@@ -48,11 +50,16 @@ function Payment() {
             }
         }).then(({ paymentIntent }) => {
             //paymentintent is   paymentconfirmation
+            
             setSucceeded(true);
-            setError(null);
-            setProcessing(false);
+            setError(null)
+            setProcessing(false)
 
-            history.replace("/orders")
+            dispatch({
+                type:"EMPTY_BASKET"
+            })
+
+            history.replace("/orders");
 
         })
 
@@ -114,9 +121,9 @@ function Payment() {
 
                     <div className="payment_details">
                         {/*Stripe function*/}
-                        <form onSubmit={handleSubmit} >
+                        <form onSubmit={handleSubmit}>
 
-                            <CardElement onChange={handleChange} />
+                            <CardElement onChange={handleChange}/>
 
                             <div className="payment_priceContainer">
                                 <CurrencyFormat 
