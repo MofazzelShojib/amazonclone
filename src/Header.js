@@ -45,24 +45,26 @@ function Header() {
 
           <div onClick={handleAuthentication} className="header_option">
 
-            <span className='hearder_optionlineOne'>'{user?.email}'</span>
+            <span className='hearder_optionlineOne'>Hello,{user?.email}
+            </span>
 
-            <span className='hearder_optionlineTwo'>{user ?
-             'Sign Out' : 'Sign In'}
+            <span className='hearder_optionlineTwo'>{user? 'Sign Out' : 'Sign In'}
             </span>
 
           </div>
         
         </Link>
             
+        <Link to='/orders'>
+          <div className="header_option">
 
-        <div className="header_option">
+            <span className='hearder_optionlineOne'> Returns </span>
 
-           <span className='hearder_optionlineOne'> Returns </span>
+            <span className='hearder_optionlineTwo'>& Orders </span>
 
-           <span className='hearder_optionlineTwo'> Orders </span>
-
-        </div>
+          </div>
+        </Link>
+       
 
         <div className="header_option">
                   
